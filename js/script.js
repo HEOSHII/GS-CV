@@ -55,19 +55,7 @@ const tagsArr = [
     'object{}',
     'array[]'
 ];
-// =========== <SET LENAGUAGE>
-const languages = new CustomSelect('#languages', {
-    name: 'lang', // значение атрибута name у кнопки
-    targetValue: 'en', // значение по умолчанию
-    options: [['en', 'En'], ['ua', 'Ua']], // опции
-});
-landuageByttons = document.querySelectorAll('.select__option');
-landuageByttons.forEach(button => {
-    button.addEventListener('click', () => {
-    html.setAttribute('lang',button.getAttribute('data-value'));
-    })
-});
-// =========== </ SET LENAGUAGE>
+
 
 
 
@@ -96,14 +84,6 @@ tabs.forEach(tab => {
 // ========= </TABS>
 
 
-
-// ========= <DARKMODE>
-const changeThemeButton = document.querySelector('.change-theme');
-changeThemeButton.addEventListener('click', () => {
-    changeThemeButton.classList.toggle('active');
-    body.classList.toggle('darkmode');
-});
-// ========= </DARKMODE>
 
 
 // ========= <LEFT SUB MENU>
