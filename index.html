@@ -9,6 +9,9 @@
     <title>GS</title>
 </head>
 <body>
+    <!-- <div class="back-image">
+        <img class="image" src="img/div.png" alt="">
+    </div> -->
     <div class="cursor"></div>
     <div class="contacts">
         <div class="contacts__toogle">CONTACTS</div>
@@ -45,20 +48,20 @@
                 <nav class="menu">
                     <ul class="menu-list">
                         <li class="menu__link">
-                            <a class="link" href="#" lang="en">About me</a>
-                            <a class="link" href="#" lang="ua">Про мене</a>
+                            <a class="link" href="#about-me" lang="en">About me</a>
+                            <a class="link" href="#about-me" lang="ua">Про мене</a>
                         </li>
                         <li class="menu__link">
-                            <a class="link" href="#" lang="en">Skills</a>
-                            <a class="link" href="#" lang="ua">Навички</a>
+                            <a class="link" href="#skills" lang="en">Skills</a>
+                            <a class="link" href="#skills" lang="ua">Навички</a>
                         </li>
                         <li class="menu__link">
-                            <a class="link" href="#" lang="en">Projects</a>
-                            <a class="link" href="#" lang="ua">Проекти</a>
+                            <a class="link" href="#projects" lang="en">Projects</a>
+                            <a class="link" href="#projects" lang="ua">Проекти</a>
                         </li>
                         <li class="menu__link">
-                            <a class="link" href="#" lang="en">Experience</a>
-                            <a class="link" href="#" lang="ua">Досвiд</a>
+                            <a class="link" href="#education" lang="en">Education</a>
+                            <a class="link" href="#education" lang="ua">Освiта</a>
                         </li>
                     </ul>
                 </nav>
@@ -78,37 +81,42 @@
     </header>
     <main class="main">
         <section class="about-me" id="about-me">
-            <h1 class="title about-me__title" lang="en">Georgii Shyriaiev</h1>
-            <h1 class="title about-me__title" lang="ua">Георгій Ширяєв</h1>
-            <p class="text about-me__text" lang="en">
-                Hi friend! <br>
-                I’m a junior front-end developer <br>
-                with a passion for coding and a big motivation for growth. <br>
-                I have a manic love for different animation effects and comfortable UI. <br><br>
-                Plus, I’m an easy-going person and fit in any team. <br>
-                I can work remotely and save your budget in my workplace but at the same time, <br>
-                understand that I will gain more experience by communicating directly with the team. <br><br>
-                So, if you have a complicated and interesting task, <br> 
-                you’ve found the right person.
-            </p>
-            <p class="text about-me__text" lang="ua">
-                Привіт друже!<br>
-                Я молодший фронтенд-розробник<br>
-                із пристрастю до кодування та великою мотивацією для зростання.<br>
-                Я маніакально люблю різні ефекти анімації та зручний інтерфейс користувача.<br><br>
-                Крім того, я легка людина і вписуюся в будь-яку команду.
-                Я можу працювати віддалено та заощаджувати ваш бюджет
-                на своєму робочому місці, але в той же час,
-                розумію, що я здобуду більше досвіду,<br>
-                спілкуючись безпосередньо з командою.<br><br>
-                Отже, якщо у тебе є складне й цікаве завдання,<br>
-                ти знайшов потрібну людину.
-            </p> 
+            <div class="back2">
+            </div>
+            <div class="texts">
+                <h1 class="title about-me__title" lang="en">Georgii Shyriaiev</h1>
+                <h1 class="title about-me__title" lang="ua">Георгій Ширяєв</h1>
+                <p class="text about-me__text" lang="en">
+                    Hi friend! <br>
+                    I’m a junior front-end developer <br>
+                    with a passion for coding and a big motivation for growth. <br>
+                    I have a manic love for different animation effects and comfortable UI. <br><br>
+                    Plus, I’m an easy-going person and fit in any team. <br>
+                    I can work remotely and save your budget in my workplace but at the same time, <br>
+                    understand that I will gain more experience by communicating directly with the team. <br><br>
+                    So, if you have a complicated and interesting task, <br> 
+                    you’ve found the right person.
+                </p>
+                <p class="text about-me__text" lang="ua">
+                    Привіт друже!<br>
+                    Я молодший фронтенд-розробник<br>
+                    із пристрастю до кодування та великою мотивацією для зростання.<br>
+                    Я маніакально люблю різні ефекти анімації та зручний інтерфейс користувача.<br><br>
+                    Крім того, я легка людина і вписуюся в будь-яку команду.
+                    Я можу працювати віддалено та заощаджувати ваш бюджет
+                    на своєму робочому місці, але в той же час,
+                    розумію, що я здобуду більше досвіду,<br>
+                    спілкуючись безпосередньо з командою.<br><br>
+                    Отже, якщо у тебе є складне й цікаве завдання,<br>
+                    ти знайшов потрібну людину.
+                </p>
+            </div>
+             
             <div class="smile">
                 <img class="smile-img" src="img/smile.png" alt="улыбка">
             </div>            
         </section>
-        <section class="skills">
+        <section class="skills" id="skills">
             <div class="container ">                
                 <p class="title skills__title" lang="en">Skills</p>
                 <p class="title skills__title" lang="ua">Навички</p>
@@ -198,7 +206,9 @@
             </button>
         </section>
 
-        <section class="container projects">
+        <section class="projects" id="projects">
+            <!-- <div class="back3">
+            </div> -->
             <p class="title projects-title" lang="en">Projects</p>
             <p class="title projects-title" lang="ua">Проекти</p>
             <p class="text" lang="en">I don't have much work experience, but once I started learning to code I can't live without this process anymore.
@@ -280,7 +290,7 @@
             <img class="contact-call" src="img/sticker-call.png" alt="">
         </section>
 
-        <section class="education">
+        <section class="education" id="education">
             <p class="title title-education" lang="en">Education</p>
             <p class="title title-education" lang="ua">Освіта</p>
             <div class="tabs">
