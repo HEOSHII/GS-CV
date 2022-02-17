@@ -7,7 +7,10 @@ const tabs = document.querySelectorAll ('.tab');
 const contacts = document.querySelector('.contacts');
 const contactsButton = document.querySelector('.contacts__toogle');
 const cursor = document.querySelector('.cursor');
-
+const links = document.querySelectorAll('.link');
+const settings = document.querySelector('.setting');
+const forms = document.querySelector('.forms');
+const menu = document.querySelector(".menus");
 const classes = [
     'change-theme',
     'change-theme active',
@@ -70,12 +73,12 @@ landuageByttons.forEach(button => {
 
 // ========= <TABS>
 tabs.forEach(tab => {
-    tab.addEventListener('mousedown', () => {
-        tab.classList.add('down');
-    });
-    tab.addEventListener('mouseup', () => {
-        tab.classList.remove('down')
-    });
+    // tab.addEventListener('mousedown', () => {
+    //     tab.classList.add('down');
+    // });
+    // tab.addEventListener('mouseup', () => {
+    //     tab.classList.remove('down')
+    // });
     tab.addEventListener('click', () => {
         tabs.forEach(el => {
             el.classList.remove('active');
@@ -137,17 +140,10 @@ document.addEventListener('scroll', () => {
         cursor.style.opacity = 1;
     }
     
-    if (event.clientX < 100) {
-        if (event.clientY > 280 && event.clientY < 550){
-            contactsButton.classList.add('hovered');
-        } else {
-            contactsButton.classList.remove('hovered');
-        }
-    } else {
-        contactsButton.classList.remove('hovered');
+    if (event.clientY < 100) {
+        menu.classList.remove('hide');
     }
 }
-
 window.addEventListener('mousedown', () => {
     cursor.classList.add('down');
 });
@@ -157,13 +153,17 @@ window.addEventListener('mouseup', () => {
 });
 // =======     </CURSOR>
 
-
-
+const langs = document.querySelector('.languages');
+const theme = document.querySelector('.themes');
+settings.addEventListener ('click', () => {
+    settings.classList.toggle('on');
+    langs.classList.toggle('on');
+    theme.classList.toggle('on');
+})
 
 setInterval(() => {
     showNewBlock ();
 }, 150);
-
 
 
 function showNewBlock () {
@@ -173,41 +173,42 @@ function showNewBlock () {
             textBlock.className = 'text-block';
             textBlock.style.top = Math.floor(Math.random() * back2.scrollHeight) + 'px';
             textBlock.style.left = Math.floor(Math.random() * back.scrollWidth) + 'px';
-            textBlock.style.fontSize = getRndInteger(5, 70) + 'px';
+            textBlock.style.fontSize = getRndInteger(5, 75) + 'px';
             textBlock.style.transition = 'all 4s ease-out';
-            textBlock.style.filter = `blur(${getRndInteger(1, 6)}px)`;
+            textBlock.style.filter = `blur(${getRndInteger(1, 5)}px)`;
             textBlock.style.transform = `rotate(${getRndInteger(-8, 6)}deg)`;
             setTimeout(() => {
                 textBlock.style.transform = `rotate(${getRndInteger(-5, 2)}deg)`;
-            }, 500);
+            }, 2000);
     back2.prepend(textBlock);
     setTimeout(() => {
         textBlock.classList.add('show');
     }, 100);
     setTimeout(() => {
         textBlock.classList.remove('show');
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
         textBlock.remove();
-    }, 4500);
+    }, 6000);
 }
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   const currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
-    // document.querySelector(".menus").style.top = "0";
-    document.querySelector(".menus").classList.remove('hide')
+    menu.classList.remove('hide');
   } else {
-    // document.querySelector(".menus").style.top = "-100%";
-    document.querySelector(".menus").classList.add('hide')
+    menu.classList.add('hide');
   }
   prevScrollpos = currentScrollPos;
+  if (currentScrollPos < 300) {
+    menu.classList.remove('hide');
+  }
 }
+
 
 

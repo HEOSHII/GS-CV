@@ -6,40 +6,40 @@
 
   .select:hover {
     transform: scale(1.1,1.1);
-    /* filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)); */
   }
 
   .select:hover .select__toggle {
-    background: rgba(87, 87, 87, 0.1);
     opacity: 1;
-    color: var(--color-accent);
+    /* color: var(--color-accent); */
+    transform: scale(1.1,1.1);
   }
 
   body.darkmode .select__toggle {
     color: #a5a5a5;
+    background: rgba(212, 212, 212, 0.1);
   }
 
   body.darkmode .select:hover .select__toggle {
-    background: rgba(212, 212, 212, 0.1);
     color: rgb(230, 230, 230);
   }
   
   .select__toggle {
+    
+    background: rgba(87, 87, 87, 0.1);
     display: flex;
     color: #545454;
-    background-color: transparent;
     border: none;
     border-radius: 15px;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
+    padding: 12px 15px;
     line-height: 1.4;
     user-select: none;
     font-size: 26px;
     justify-content: space-between;
     text-transform: uppercase;
     transform: translateZ(0);
-    transition: background-color 0.4s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   .select__toggle.open {
