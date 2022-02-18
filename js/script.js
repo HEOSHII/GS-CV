@@ -1,6 +1,7 @@
 const back = document.querySelector(".back");
 const back2 = document.querySelector(".back2");
 const tabs = document.querySelectorAll ('.tab');
+const tabItems = document.querySelectorAll('.tab-item');
 const contacts = document.querySelector('.contacts');
 const contactsButton = document.querySelector('.contacts__toogle');
 const menu = document.querySelector(".menus");
@@ -38,22 +39,21 @@ const tagsArr = [
     'array[]'
 ];
 
+
 // ========= <TABS>
 tabs.forEach(tab => {
-    tab.addEventListener('click', (event) => {
-        tabs.forEach(el => {
-            el.classList.remove('active');
+    tab.addEventListener('click', (e) => {
+        tabs.forEach(tab => {
+            tab.classList.remove('active');
         });
         tab.classList.add('active');
-        const value = event.target.querySelector('.tab-title').innerHTML.toLowerCase();
-        const tabItems = document.querySelectorAll('.tab-item');
+        const value = e.target.querySelector('.tab-title').innerHTML.toLowerCase();
         const itemToActive = document.querySelector(`.${value}`);
-        tabItems.forEach(el => {
-            el.classList.remove('active');
+        tabItems.forEach(item => {
+            item.classList.remove('active');
         });
         itemToActive.classList.add('active');
-        turnOnTab(itemToActive);
-    });
+    })
 });
 // ========= </TABS>
 
@@ -120,7 +120,10 @@ function createBlock () {
 }
 
 function turnOnTab(name) {
-    name.classList.add('active');
+    name.style.display = 'grid';
+    setTimeout(() => {
+        name.classList.add('active');
+    }, 100);
 }
 
 function getRndInteger(min, max) {

@@ -586,7 +586,7 @@ body.darkmode .cursor-change {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 40px;
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.7);
     z-index: 9998;
@@ -1408,26 +1408,24 @@ body.darkmode  .tab.active .tab-title {
 
 .tab-content {
     width: 100%;
-    height: 600px;
     padding-top: 25px;
-    overflow: hidden;
-    position: relative;
+    /* overflow: hidden; */
 }
 
 .tab-item {
-    position: absolute;
-    width: 95%;
-    height: 90%;
+    min-height: 600px;
+    width: 100%;
+    height: 100%;
     top: 50px;
     top: -100%;
-    opacity: 0;
-    display: grid;
+    opacity: 1;
+    display: none;
     gap: 30px;
     transition: all 0.3s ease-out;
-    transform: translateX(2%);
 }
 
 .tab-item.active {
+    display: grid;
     top: 50px;
     opacity: 1;
     transition-delay: 0.35s;
@@ -1442,13 +1440,14 @@ body.darkmode  .tab.active .tab-title {
 
 .basic-item,
 .courses-item {
+    height: 100%;
     background: white;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.301);
-    padding: 75px 30px;
+    padding: 50px 30px;
     transition: all 0.3s;
     justify-content: space-around;
 }
@@ -1743,7 +1742,7 @@ body.darkmode footer a:hover {
     /* border-right: 1px solid black; */
     width: 25%;
     transform: translateX(-100%);
-    transition: transform 0.45s ease-out;
+    transition: transform 0.2s ease-out;
 }
 
 .contacts.show {
@@ -1766,7 +1765,7 @@ body.darkmode footer a:hover {
     align-items: center;
     font-size: 20px;
     color: white;
-    transition: all .45s;
+    transition: all .25s;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3),
     inset 0 2px 3px white,
     inset 0 -2px 8px black;
@@ -1784,7 +1783,7 @@ body.darkmode footer a:hover {
 }
 
 .contacts__toogle.hovered {
-    transition: all .3s;
+    transition: all .2s;
     animation: none;
     opacity: 1;
 }
