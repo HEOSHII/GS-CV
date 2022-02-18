@@ -5,6 +5,7 @@ const tabItems = document.querySelectorAll('.tab-item');
 const contacts = document.querySelector('.contacts');
 const contactsButton = document.querySelector('.contacts__toogle');
 const menu = document.querySelector(".menus");
+const burger = document.querySelector('.burger');
 const tagsArr = [
     '<div>',
     '</>',
@@ -38,7 +39,6 @@ const tagsArr = [
     'object{}',
     'array[]'
 ];
-
 
 // ========= <TABS>
 tabs.forEach(tab => {
@@ -84,8 +84,10 @@ window.onscroll = function() {
   if (prevScrollpos > currentScrollPos) {
     menu.classList.remove('hide');
   } else {
-    menu.classList.add('hide');
-    closeSettings();
+        if (window.screen.width > 768) {
+            menu.classList.add('hide');
+            closeSettings();
+        }
   }
   prevScrollpos = currentScrollPos;
   if (currentScrollPos < 300) {
@@ -119,15 +121,12 @@ function createBlock () {
     }, 6000);
 }
 
-function turnOnTab(name) {
-    name.style.display = 'grid';
-    setTimeout(() => {
-        name.classList.add('active');
-    }, 100);
-}
-
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+})
 
 
