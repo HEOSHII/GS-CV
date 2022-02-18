@@ -1,16 +1,9 @@
-const html = document.querySelector('html');
 const back = document.querySelector(".back");
 const back2 = document.querySelector(".back2");
-const body = document.querySelector('body');
 const tabs = document.querySelectorAll ('.tab');
 const contacts = document.querySelector('.contacts');
 const contactsButton = document.querySelector('.contacts__toogle');
-const cursor = document.querySelector('.cursor');
-const settings = document.querySelector('.setting');
 const menu = document.querySelector(".menus");
-const logo = document.querySelector(".logo");
-const links = document.querySelectorAll(".menu__link");
-const icons = document.querySelectorAll(".icons-item");
 const tagsArr = [
     '<div>',
     '</>',
@@ -47,7 +40,7 @@ const tagsArr = [
 
 // ========= <TABS>
 tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (event) => {
         tabs.forEach(el => {
             el.classList.remove('active');
         });
@@ -59,12 +52,10 @@ tabs.forEach(tab => {
             el.classList.remove('active');
         });
         itemToActive.classList.add('active');
+        turnOnTab(itemToActive);
     });
 });
 // ========= </TABS>
-
-
-
 
 // ========= <LEFT SUB MENU>
 contactsButton.addEventListener('mouseover', () => {
@@ -75,8 +66,6 @@ contacts.addEventListener('mouseleave', () => {
 });
 // ========= </LEFT SUB MENU>
 
-
-
 // ========= <BACKGROUND PARALAX SCROLLING>
 document.addEventListener('scroll', () => {
     let y = window.scrollY;
@@ -85,36 +74,26 @@ document.addEventListener('scroll', () => {
 });
 // ========= </BACKGROUND PARALAX SCROLLING>
 
-const langs = document.querySelector('.languages');
-const theme = document.querySelector('.themes');
-
-const cursorChanger = document.querySelector('.cursor-change');
-
-settings.addEventListener ('click', () => {
-    settings.classList.toggle('on');
-    langs.classList.toggle('on');
-    theme.classList.toggle('on');
-    cursorChanger.classList.toggle('on');
-});
-
-window.addEventListener('click', (e) => {
-    const targetClass = e.target.classList;
-    if (!targetClass.contains('themes') 
-    && !targetClass.contains('languages') 
-    && !targetClass.contains('form-check')
-    && !targetClass.contains('forms')
-    && !targetClass.contains('setting')
-    && !targetClass.contains('cursor-change')) {
-        console.log("close pls");
-        closeSettings();
-    }
-});
-
 setInterval(() => {
-    showNewBlock ();
+    createBlock ();
 }, 350);
 
-function showNewBlock () {
+let prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    menu.classList.remove('hide');
+  } else {
+    menu.classList.add('hide');
+    closeSettings();
+  }
+  prevScrollpos = currentScrollPos;
+  if (currentScrollPos < 300) {
+    menu.classList.remove('hide');
+  }
+}
+
+function createBlock () {
     const rand = Math.floor(Math.random() * tagsArr.length);
     const textBlock = document.createElement('div');
             textBlock.innerText = tagsArr[rand];
@@ -140,31 +119,12 @@ function showNewBlock () {
     }, 6000);
 }
 
+function turnOnTab(name) {
+    name.classList.add('active');
+}
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-let prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  const currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    menu.classList.remove('hide');
-  } else {
-    menu.classList.add('hide');
-    closeSettings();
-  }
-  prevScrollpos = currentScrollPos;
-  if (currentScrollPos < 300) {
-    menu.classList.remove('hide');
-  }
-}
-
-function closeSettings(){
-    settings.classList.remove('on');
-    langs.classList.remove('on');
-    theme.classList.remove('on');
-    cursorChanger.classList.remove('on');
-}
-
 
 

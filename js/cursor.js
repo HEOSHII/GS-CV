@@ -1,4 +1,7 @@
 // ====== отслеживание расположения курсора, плюс функция появления меню при курсоре вверху
+const html = document.querySelector('html');
+const body = document.querySelector('body');
+const cursor = document.querySelector('.cursor');
 html.onmousemove = function(event) {
     event = event || window.event;
     cursor.style.top = event.clientY - 10 + "px";

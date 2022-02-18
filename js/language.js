@@ -1,5 +1,5 @@
 const languageButton = document.querySelector('.languages');
-const pageLang = localStorage.getItem('currentLang');
+let pageLang = localStorage.getItem('currentLang');
 let currentLang = languageButton.innerText;
 
 if (pageLang === null) {
