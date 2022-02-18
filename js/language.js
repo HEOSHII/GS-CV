@@ -1,25 +1,33 @@
+const languageButton = document.querySelector('.languages');
+const pageLang = localStorage.getItem('currentLang');
+let currentLang = languageButton.innerText;
 
-const languages = new CustomSelect('#languages', {
-    name: 'lang', // значение атрибута name у кнопки
-    targetValue: 'en', // значение по умолчанию
-    options: [['en', 'En'], ['ua', 'Ua']], // опции
+if (pageLang === null) {
+    currentLang = 'EN';
+    setHtmlLanguage('EN');
+} else {
+    setHtmlLanguage(pageLang);
+}
+
+languageButton.addEventListener('click',() => {
+    currentLang = languageButton.innerText;
+    changeLanguageLalue(currentLang);
 });
 
-const landuageButtons = document.querySelectorAll('.select__option');
-let pageLang = localStorage.getItem('pageLang');
-console.log(pageLang);
-setLang(pageLang);
+function changeLanguageLalue(langToChange) {
+    if (currentLang === 'UA') {
+        currentLang = 'EN';
+        setHtmlLanguage('EN');
+    } else 
+    if (currentLang === 'EN'){
+        currentLang = 'UA';
+        setHtmlLanguage('UA');
+    }
+}
 
-
-landuageButtons.forEach(langButton => {
-    langButton.addEventListener('click', () => {
-    const langToSet = langButton.getAttribute('data-value');
-    setLang(langToSet);
-    });
-});
-
-
-function setLang(lang) {
-    html.setAttribute('lang',lang);
-    localStorage.setItem('pageLang',lang);
+function setHtmlLanguage(lang) {
+    languageButton.innerText = lang;
+    html.setAttribute('lang',lang.toLowerCase());
+    localStorage.setItem('currentLang',lang);
+    console.log ('language changed to ', lang);
 }

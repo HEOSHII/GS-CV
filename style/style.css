@@ -16,6 +16,18 @@
     cursor: none;
 }
 
+body[data-cursor="arrow"] *{
+    cursor: default;
+}   
+
+body[data-cursor="arrow"] .cursor {
+    display: none;
+}
+
+body[data-cursor="cirle"] *{
+    cursor: none;
+}
+
 
 :root {
     --color-blue: #67A6D0;
@@ -28,7 +40,6 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
 }
 
 html[lang="en"] [lang="ua"] {
@@ -50,7 +61,6 @@ body {
     width: 100%;
     position: relative;
     overflow-x: hidden;
-    /* background: url(../img/gplaypattern.png) center center; */
 }
 
 main {
@@ -74,7 +84,6 @@ main {
 }
 
 .header {
-    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,7 +104,7 @@ main {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: url(../img/gplaypattern.png) center center;
+    background: url(../img/gplaypattern.png);
     /* background: url(../img/stripes-light.png) center center; */
     /* background: url(../img/dots.png) center center; */
     filter: invert(0);
@@ -191,7 +200,7 @@ body.darkmode .logo:hover {
     position: relative;
     display: flex;
     transition: transform 0.2s ease-out;
-    padding: 12px;
+    padding: 6px;
     border-radius: 15px;
 }
 
@@ -224,38 +233,30 @@ body.darkmode .setting.on {
     transform: rotate(77deg);
 }
 
-.forms {
-    top: 40px;
-    display: flex;
-    transform-origin: left;
-    transition: all 0.6s;
-    margin-left: 10px;
-    transform-origin: left;
-    transition: all .1s ease-out;
-    padding: 5px 10px;
-    border-radius: 15px;
-
-}
+/* .forms {
+    margin-left: 100px;
+} */
 
 .themes {
     opacity: 0;
-    padding: 15px;
+    padding: 6px;
     border-radius: 15px;
     transition: .2s ease-out;
     background: rgba(87, 87, 87, 0.1);
-    transform: scaleX(0);
+    transform: scaleX(0) translateX(-50px);
     transform-origin: left;
-    transition: 0.2s ease-out 0.1s;
+    transition: 0.3s ease-out 0.15s;
 }
 
 .themes.on {
     opacity: 1;
-    transform: scaleX(1);
+    transform: scaleX(1) translateX(0) translateZ(0);
     transition: 0.2s ease-out;
 }
 
 .themes:hover {
-    transform: scale(1.1,1.1);
+    padding: 4px 8px 14px 8px;
+    transform: scale(1.1,1.1) translateZ(0);
 }
 
 body.darkmode .themes.on {
@@ -270,6 +271,7 @@ body.darkmode .themes.on {
     border-radius: 30px;
     position: relative;
     transition: all 0.3s ease-out;
+    pointer-events: none;
 }
 
 .change-theme-ligth,
@@ -279,11 +281,11 @@ body.darkmode .themes.on {
     position:absolute;
     width: 150%;
     text-align: center;
-    bottom: -15px;
-    font-size: 10px;
+    bottom: -12px;
+    font-size: 8px;
     opacity: 0;
-    transition: .6s ease-out;
-    transition-delay: 3s;
+    transition: .2s ease-out;
+    /* transition-delay: 0.7s; */
 }
 
 .change-theme-ligth {
@@ -302,8 +304,8 @@ body.darkmode .change-theme-dark {
     display: block;
 }
 
-.change-theme:hover .change-theme-ligth,
-.change-theme:hover .change-theme-dark {
+.themes:hover .change-theme-ligth,
+.themes:hover .change-theme-dark {
     opacity: 1;
     transition: 0.3s ease-out;
     transition-delay: 0.15s;
@@ -320,6 +322,7 @@ body.darkmode .change-theme-dark {
     border-radius: 50%;
     filter: invert(0);
     background: rgb(255, 255, 255);
+    box-shadow: inset 0 0 1px black;
     transition: all 0.3s ease-out;
 }
 
@@ -362,6 +365,7 @@ SVG Icons - svgicons.sparkk.fr
     height: 2em;
     transform: rotate(0);
     transition: all .6s ease-out;
+    pointer-events: none;
 }
 
 .svg-icon:hover {
@@ -429,29 +433,39 @@ SVG Icons - svgicons.sparkk.fr
 }
 
 .form-check {
-    max-width: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    z-index: 20;
-    position: relative;
-    border-radius: 4px;
+    margin-left: 14px;
 }
 
 .languages {
     margin-left: 0;
-    transform: scaleX(0);
+    transform: scaleX(0) translateX(-50px);
     transform-origin: left;
-    transition: .2s ease-out;
+    transition: .2s ease-out 0.05s;
     opacity: 0;
+    background: rgba(87, 87, 87, 0.1);
+    font-size: 20px;
+    padding: 8px 12px;
+    border-radius: 15px;
+}
+
+.languages.on:hover {
+    transform: scale(1.1,1.1) translateZ(0);
+    padding: 10px 12px;
 }
 
 .languages.on {
-    margin-left: 15px;
-    transform: scaleX(1);
-    transition: .2s ease-out 0.1s;
+    margin-left: 10px;
+    transform: scaleX(1) translateZ(0);
+    transition: .2s ease-out 0.05s;
     opacity: 1;
+}
+
+body.darkmode .languages{
+    background: rgba(212, 212, 212, 0.1);
+    color: white;
 }
 
 .languages select{
@@ -470,15 +484,72 @@ SVG Icons - svgicons.sparkk.fr
     justify-content: center;
 }
 
+.cursor-change {
+    /* background: rgba(212, 212, 212, 0.1); */
+    background: rgba(87, 87, 87, 0.1);
+    border-radius: 15px;
+    opacity: 0;
+    transform: scaleX(0) translateZ(0);
+    transform-origin: left;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 11px;
+    margin-left: 0;
+    transition: .2s ease-out;
+}
+
+
+.cursor-change.on {
+    opacity: 1;
+    transform: scaleX(1) translateZ(0);
+    margin-left: 10px;
+    transition: .2s ease-out 0.1s;
+}
+
+
+.cursor-change:hover{
+    transition: .2s;
+    transform: scaleX(1) scale(1.15,1.15) translateZ(0);
+}
+
+body.darkmode .cursor-change {
+    background: rgba(212, 212, 212, 0.1);
+}
+
+.cursor-change-svg {
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+}
+
+.cursor-change-svg path{
+    stroke: white;
+    stroke-width: 3;
+    fill: black;
+    pointer-events: none;
+}
+
+.cursor-change-circle {
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    /* backdrop-filter: invert(1); */
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .menus {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px 20px 15px 70px;
+    padding: 10px 0;
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.7);
     z-index: 9998;
-    transition: all .4s ease-out;
+    transition: all .3s ease-out;
     opacity: 1;
     /* border-radius: 45px; */
 }
@@ -486,7 +557,7 @@ SVG Icons - svgicons.sparkk.fr
 .menus.hide {
     opacity: 0;
     top: -15%;
-    transition: all .4s ease-in;
+    transition: all .3s ease-in;
 }
 
 body.darkmode .menus{
@@ -531,7 +602,7 @@ body.darkmode .menu__link:hover {
     transform: scale(1.05,1.05) translateZ(0);
 }
 .link {
-    padding: 20px;
+    padding: 15px 20px;
     transition: 0.2s ease-out;
     border-radius: 20px;
 }
@@ -1099,8 +1170,8 @@ body.darkmode .education {
     opacity: .8;
     transition: all 0.2s ease-out;
     position: relative;
-    /* background: linear-gradient(rgb(128, 188, 228), var(--color-blue)); */
-    /* box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.384); */
+    background: var(--color-blue);
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.384);
 }
 
 .tab-basic {
@@ -1148,7 +1219,7 @@ body.darkmode .tab::after {
 .tab.active {
     transition: all 0.1s ease-out;
     opacity: 1;
-    /* background: linear-gradient(rgb(80, 151, 199), var(--color-blue)); */
+    background: linear-gradient(rgb(80, 151, 199), var(--color-blue));
 }
 
 .triagle {
@@ -1642,13 +1713,14 @@ body.darkmode .contacts__toogle{
     width: 20px;
     height: 20px;
     background: rgba(0, 0, 0, 0.01);
-    z-index: 9999;
+    z-index: 99999;
     border-radius: 50%;
     pointer-events: none;
     backdrop-filter: invert(1);
     transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.2s ease-out, transform 0.15s ease-out;
     transform: translateZ(0);
     opacity: 1;
+    pointer-events: none;
 }
 
 .cursor.down {

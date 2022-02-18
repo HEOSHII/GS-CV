@@ -1,3 +1,4 @@
+const themes = document.querySelector('.themes');
 const changeThemeButton = document.querySelector('.change-theme');
 let darkMode = localStorage.getItem('darkMode'); //получаем инфу из памяти
 
@@ -9,7 +10,7 @@ if (darkMode === 'enabled') {
 }
 
 //меняем тему при нажатии на кнопку
-changeThemeButton.addEventListener('click', () => {
+themes.addEventListener('click', () => {
     darkMode = localStorage.getItem('darkMode'); //перезаписываем переменную с новым значением
     if (darkMode !== 'enabled'){
         enableDarkMode();
