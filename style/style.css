@@ -18,7 +18,22 @@
 
 body[data-cursor="arrow"] *{
     cursor: default;
-}   
+} 
+body[data-cursor="arrow"] .setting,
+body[data-cursor="arrow"] .logo,
+body[data-cursor="arrow"] .link,
+body[data-cursor="arrow"] .themes,
+body[data-cursor="arrow"] .languages,
+body[data-cursor="arrow"] .cursor-change,
+body[data-cursor="arrow"] .icons-item,
+body[data-cursor="arrow"] .to-my-pets,
+body[data-cursor="arrow"] .contact-me,
+body[data-cursor="arrow"] .tab,
+body[data-cursor="arrow"] .phone,
+body[data-cursor="arrow"] .name,
+body[data-cursor="arrow"] .from-btn{
+    cursor: pointer;
+}     
 
 body[data-cursor="arrow"] .cursor {
     display: none;
@@ -26,6 +41,11 @@ body[data-cursor="arrow"] .cursor {
 
 body[data-cursor="cirle"] *{
     cursor: none;
+}
+
+body[data-cursor="cirle"] .setting:hover.cursor{
+    width: 50px;
+    height: 50px;
 }
 
 
@@ -174,19 +194,25 @@ body.darkmode .back2 {
     transition: 0.3s ease-out; 
     border-radius: 15px;
     padding: 5px 10px;
-    transition: 0.4s ease-out;
+    transition: 0.2 s ease-out;
 }
 
 .logo:hover {
+    transition: 0.2 s ease-out;
     transform: scale(1.2,1.2);    
     background: rgba(87, 87, 87, 0.1);
+}
+
+.logo:hover.logo.down {
+    transform: scale(1.1,1.1) translateZ(0);
+    transition: .05s ease-out;
 }
 
 
 
 body.darkmode .logo {
     color: var(--color-accent);
-    transition: 0.3s ease-out; 
+    transition: 0.2s ease-out; 
     text-shadow: 0 0 1px black;
 }
 
@@ -233,9 +259,10 @@ body.darkmode .setting.on {
     transform: rotate(77deg);
 }
 
-/* .forms {
-    margin-left: 100px;
-} */
+.setting:hover.setting.down {
+    transform: scale(1.1,1.1) translateZ(0);
+    transition: .05s ease-out;
+}
 
 .themes {
     opacity: 0;
@@ -257,6 +284,11 @@ body.darkmode .setting.on {
 .themes:hover {
     padding: 4px 8px 14px 8px;
     transform: scale(1.1,1.1) translateZ(0);
+}
+
+.themes:hover.themes.down {
+    transform: scale(1.05,1.05) translateZ(0);
+    transition: none;
 }
 
 body.darkmode .themes.on {
@@ -447,13 +479,12 @@ SVG Icons - svgicons.sparkk.fr
     opacity: 0;
     background: rgba(87, 87, 87, 0.1);
     font-size: 20px;
-    padding: 8px 12px;
+    padding: 9px 11px;
     border-radius: 15px;
 }
 
 .languages.on:hover {
-    transform: scale(1.1,1.1) translateZ(0);
-    padding: 10px 12px;
+    transform: scale(1.17,1.17) translateZ(0);
 }
 
 .languages.on {
@@ -461,6 +492,11 @@ SVG Icons - svgicons.sparkk.fr
     transform: scaleX(1) translateZ(0);
     transition: .2s ease-out 0.05s;
     opacity: 1;
+}
+
+.languages:hover.languages.down {
+    transform: scale(1.05,1.05) translateZ(0);
+    transition: none;
 }
 
 body.darkmode .languages{
@@ -511,6 +547,11 @@ body.darkmode .languages{
 .cursor-change:hover{
     transition: .2s;
     transform: scaleX(1) scale(1.15,1.15) translateZ(0);
+}
+
+.cursor-change:hover.cursor-change.down {
+    transform: scale(1.05,1.05) translateZ(0);
+    transition: none;
 }
 
 body.darkmode .cursor-change {
@@ -624,13 +665,25 @@ body.darkmode .link:hover {
 }
 
 .icons-item {
-    width: 41px;
+    opacity: 0.8;
+    width: 35px;    
     transition: all .35s;
+    transform: translateZ(0);
 }
 
 .icons-item:hover {
-    transform: scale(1.2,1.2);
+    opacity: 1;
+    transform: scale(1.2,1.2) translateZ(0);
 }
+
+
+.icons-item svg,
+.icons-item path {
+    pointer-events: none;
+}
+
+
+
 
 .filled_Qbi .outer_bDW {
     fill: currentColor;
@@ -669,17 +722,15 @@ body.darkmode .link:hover {
 .phone_3VJ {
     color: #61a854;
     animation: shake 1s ease-out 2s infinite, hoverWave 1s ease-out 2s infinite;
+    pointer-events: visible;
 }
 
 .phone_3VJ:hover {
+    pointer-events: visible;
     animation: none;
     color: #4d8643;
-    /* animation-play-state: paused; */
 }
 
-/* .logo_2gS {
-    cursor: pointer;
-} */
 
 .about-me {
     height: 100%;
@@ -935,6 +986,10 @@ body.darkmode .fil0 {
     box-shadow: 3px 2px 3px 1px rgba(0, 0, 0, 0.26);
 }
 
+.to-my-pets p {
+    pointer-events: none;
+}
+
 body.darkmode .to-my-pets {
     background: rgb(200, 200, 200);
 }
@@ -1116,6 +1171,10 @@ body.darkmode .panel__item:hover .panel__item-photo img {
     transition: all 0.3s;
 }
 
+.contact-me p {
+    pointer-events: none;
+}
+
 .contact-me:hover {    
     background: rgb(54, 54, 54);    
     color: #ffffff;
@@ -1172,6 +1231,12 @@ body.darkmode .education {
     position: relative;
     background: var(--color-blue);
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.384);
+}
+
+.tab svg,
+.tab path,
+.tab p {
+    pointer-events: none;
 }
 
 .tab-basic {
@@ -1559,6 +1624,10 @@ body.darkmode .form-inputs input:focus {
     border-radius: 5px;
     font-size: 18px;
     transition: all 0.2s;
+}
+
+.from-btn p{
+    pointer-events: none;
 }
 
 .from-btn:hover {

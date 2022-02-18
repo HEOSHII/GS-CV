@@ -8,6 +8,7 @@ const contactsButton = document.querySelector('.contacts__toogle');
 const cursor = document.querySelector('.cursor');
 const settings = document.querySelector('.setting');
 const menu = document.querySelector(".menus");
+const logo = document.querySelector(".logo");
 const tagsArr = [
     '<div>',
     '</>',
@@ -101,7 +102,6 @@ window.addEventListener('click', (e) => {
     const targetClass = e.target.classList;
     if (!targetClass.contains('themes') 
     && !targetClass.contains('languages') 
-    && !targetClass.contains('languages')
     && !targetClass.contains('form-check')
     && !targetClass.contains('forms')
     && !targetClass.contains('setting')
