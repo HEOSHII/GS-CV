@@ -9,6 +9,8 @@ const cursor = document.querySelector('.cursor');
 const settings = document.querySelector('.setting');
 const menu = document.querySelector(".menus");
 const logo = document.querySelector(".logo");
+const links = document.querySelectorAll(".menu__link");
+const icons = document.querySelectorAll(".icons-item");
 const tagsArr = [
     '<div>',
     '</>',
@@ -45,12 +47,6 @@ const tagsArr = [
 
 // ========= <TABS>
 tabs.forEach(tab => {
-    tab.addEventListener('mousedown', () => {
-        tab.classList.add('down');
-    });
-    tab.addEventListener('mouseup', () => {
-        tab.classList.remove('down')
-    });
     tab.addEventListener('click', () => {
         tabs.forEach(el => {
             el.classList.remove('active');
@@ -66,6 +62,9 @@ tabs.forEach(tab => {
     });
 });
 // ========= </TABS>
+
+
+
 
 // ========= <LEFT SUB MENU>
 contactsButton.addEventListener('mouseover', () => {
@@ -113,7 +112,7 @@ window.addEventListener('click', (e) => {
 
 setInterval(() => {
     showNewBlock ();
-}, 200);
+}, 350);
 
 function showNewBlock () {
     const rand = Math.floor(Math.random() * tagsArr.length);

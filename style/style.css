@@ -620,7 +620,7 @@ body.darkmode .menus{
     /* line-height: 0; */
     font-size: 20px;
     color: #545454;
-    transition: all 0.35s;
+    transition: all 0.2s;
 }
 
 body.darkmode .menu__link {
@@ -632,24 +632,32 @@ body.darkmode .menu__link:hover {
     color: rgb(230, 230, 230);
 }
 
-
-/* .menu__link:last-child {
-    margin-right: 0;
-} */
-
 .menu__link:hover {
     color: var(--color-accent);
-    /* background: black; */
     transform: scale(1.05,1.05) translateZ(0);
 }
 .link {
+    display: block;
     padding: 15px 20px;
     transition: 0.2s ease-out;
     border-radius: 20px;
+
 }
 .link:hover {
     background: rgba(87, 87, 87, 0.1);
 }
+
+.link.down {
+    transition: 0.05s;
+    transform: scale(.95,.95);
+}
+
+.menu__link:hover.menu__link.down {
+    transform: scale(1,1) translateZ(0);
+    transition: .05s ease-out;
+}
+
+
 
 body.darkmode .link:hover {
     background: rgba(212, 212, 212, 0.1);
@@ -674,6 +682,11 @@ body.darkmode .link:hover {
 .icons-item:hover {
     opacity: 1;
     transform: scale(1.2,1.2) translateZ(0);
+}
+
+.icons-item.down {
+    transition: 0.05s ease-out;
+    transform: scale(1.1,1.1) translateZ(0);
 }
 
 
@@ -986,6 +999,11 @@ body.darkmode .fil0 {
     box-shadow: 3px 2px 3px 1px rgba(0, 0, 0, 0.26);
 }
 
+.to-my-pets:hover.to-my-pets.down {
+    transition: .05s;
+    transform: scale(1.05,1.05);    
+}
+
 .to-my-pets p {
     pointer-events: none;
 }
@@ -1179,6 +1197,11 @@ body.darkmode .panel__item:hover .panel__item-photo img {
     background: rgb(54, 54, 54);    
     color: #ffffff;
     transform: scale(1.1,1.1) translateZ(0);;
+}
+
+.contact-me:hover.contact-me.down {
+    transition: .05s;
+    transform: scale(1.05,1.05);    
 }
 
 body.darkmode .contact-me {
@@ -1626,6 +1649,10 @@ body.darkmode .form-inputs input:focus {
     transition: all 0.2s;
 }
 
+.from-btn:hover.from-btn.down {
+    transform: scale(1,1);
+}
+
 .from-btn p{
     pointer-events: none;
 }
@@ -1786,14 +1813,14 @@ body.darkmode .contacts__toogle{
     border-radius: 50%;
     pointer-events: none;
     backdrop-filter: invert(1);
-    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.2s ease-out, transform 0.15s ease-out;
+    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.2s ease-out, transform 0.1s ease-out;
     transform: translateZ(0);
     opacity: 1;
     pointer-events: none;
 }
 
 .cursor.down {
-    transform: scale(.88,.88) translateZ(0);
+    transform: scale(.85,.85) translateZ(0);
     transition: none;
 }
 

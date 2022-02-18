@@ -9,21 +9,14 @@ html.onmousemove = function(event) {
 }
 
 // ======== эффект нажатия и отпускания
-window.addEventListener('mousedown', () => {
+
+window.addEventListener('mousedown', (e) => {
     cursor.classList.add('down');
-    settings.classList.add('down');
-    theme.classList.add('down');
-    langs.classList.add('down');
-    cursorChanger.classList.add('down');
-    logo.classList.add('down');
+    e.target.classList.add('down');
 });
-window.addEventListener('mouseup', () => {
+window.addEventListener('mouseup', (e) => {
     cursor.classList.remove('down');
-    settings.classList.remove('down');
-    theme.classList.remove('down');
-    langs.classList.remove('down');
-    cursorChanger.classList.remove('down');
-    logo.classList.remove('down');
+    e.target.classList.remove('down');
 });
 
 
