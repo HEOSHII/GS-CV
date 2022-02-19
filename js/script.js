@@ -133,10 +133,9 @@ burger.addEventListener('click', () => {
     burger.classList.toggle('active');
     header.classList.toggle('open');
     if (header.classList.contains('open')){
-        body.style.overflow = hidden;
+        body.style.overflow = "hidden";
     } else {
-        
-        body.style.overflow = auto;
+        body.style.overflow = "auto";
     }
 })
 
