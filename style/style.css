@@ -112,6 +112,9 @@ main {
     align-items: center;
     justify-content: space-between;
 }
+.cursor-change.on {
+    display: none;
+}
 
 .row {
     display: flex;

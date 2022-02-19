@@ -6,6 +6,7 @@ const contacts = document.querySelector('.contacts');
 const contactsButton = document.querySelector('.contacts__toogle');
 const menu = document.querySelector(".menus");
 const burger = document.querySelector('.burger');
+const header = document.querySelector('.header');
 const tagsArr = [
     '<div>',
     '</>',
@@ -130,6 +131,13 @@ function getRndInteger(min, max) {
 
 burger.addEventListener('click', () => {
     burger.classList.toggle('active');
+    header.classList.toggle('open');
+    if (header.classList.contains('open')){
+        body.style.overflow = hidden;
+    } else {
+        
+        body.style.overflow = auto;
+    }
 })
 
 
