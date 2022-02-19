@@ -14,6 +14,12 @@ html.onmousemove = function(event) {
 // ======== эффект нажатия и отпускания
 
 window.addEventListener('mousedown', (e) => {
+    if(window.screen.width < 769) {
+        e.target.classList.add('down');
+        setTimeout(() => {
+            e.target.classList.remove('down');
+        }, 200);
+    }
     cursor.classList.add('down');
     e.target.classList.add('down');
 });

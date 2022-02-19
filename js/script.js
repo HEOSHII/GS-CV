@@ -74,6 +74,7 @@ document.addEventListener('scroll', () => {
 });
 // ========= </BACKGROUND PARALAX SCROLLING>
 
+
 setInterval(() => {
     createBlock ();
 }, 350);
@@ -96,8 +97,9 @@ window.onscroll = function() {
 }
 
 function createBlock () {
-    const rand = Math.floor(Math.random() * tagsArr.length);
-    const textBlock = document.createElement('div');
+    if (window.screen.width > 768) {
+        const rand = Math.floor(Math.random() * tagsArr.length);
+        const textBlock = document.createElement('div');
             textBlock.innerText = tagsArr[rand];
             textBlock.className = 'text-block';
             textBlock.style.top = Math.floor(Math.random() * back2.scrollHeight) + 'px';
@@ -106,19 +108,20 @@ function createBlock () {
             textBlock.style.transition = 'all 4s ease-out';
             textBlock.style.filter = `blur(${getRndInteger(1, 5)}px)`;
             textBlock.style.transform = `rotate(${getRndInteger(-8, 6)}deg)`;
-            setTimeout(() => {
-                textBlock.style.transform = `rotate(${getRndInteger(-5, 2)}deg)`;
-            }, 2000);
-    back2.prepend(textBlock);
-    setTimeout(() => {
-        textBlock.classList.add('show');
-    }, 100);
-    setTimeout(() => {
-        textBlock.classList.remove('show');
-    }, 3000);
-    setTimeout(() => {
-        textBlock.remove();
-    }, 6000);
+        setTimeout(() => {
+            textBlock.style.transform = `rotate(${getRndInteger(-5, 2)}deg)`;
+        }, 2000);
+            back2.prepend(textBlock);
+        setTimeout(() => {
+            textBlock.classList.add('show');
+        }, 100);
+        setTimeout(() => {
+            textBlock.classList.remove('show');
+        }, 3000);
+        setTimeout(() => {
+            textBlock.remove();
+        }, 6000);
+    }
 }
 
 function getRndInteger(min, max) {
