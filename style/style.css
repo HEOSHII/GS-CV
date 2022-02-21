@@ -84,7 +84,6 @@ body {
     scroll-behavior: smooth;
     width: 100%;
     position: relative;
-    overflow-x: hidden;
 }
 
 main {
@@ -95,7 +94,7 @@ main {
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
     width: 0; /* ширина для вертикального скролла */
-    background-color: #545454;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 /* ползунок скроллбара */
@@ -107,14 +106,14 @@ main {
     background-color: #253861;
 }
 
+
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.cursor-change.on {
-    display: none;
-}
+
 
 .row {
     display: flex;
@@ -142,6 +141,7 @@ main {
     align-items: center;
     transition: filter 0.3s ease-out;
     height: 100%;
+    pointer-events: none;
 }
 
 body.darkmode .back {
@@ -162,6 +162,7 @@ body.darkmode .back {
     justify-content: center;
     align-items: center;
     transition: filter 0.3s ease-out;
+    pointer-events: none;
 }
 
 body.darkmode .back2 {

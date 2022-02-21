@@ -64,8 +64,10 @@
     }
 
     .header {
+        opacity: 0;
         top: 0;
-        right: -100%;
+        right: 0;
+        /* right: -100%; */
         justify-content: center;
         position: absolute;
         width: 100%;
@@ -75,10 +77,29 @@
         flex-direction: column;
         transition: all 0.2s ease-out;
     }
+    
 
     .header.open {
         right: 0;
+        opacity: 1;
     }
+
+    body.darkmode .header.open {
+
+        background: black;
+    }
+
+
+    .change-theme {
+        width: 40px;
+        height: 20px;
+    }
+    .change-theme-ligth, .change-theme-dark {
+        font-size: 6px;
+    }
+
+
+    
 
     .logo {
         position: relative;
@@ -99,6 +120,10 @@
 
     .setting:hover {
         background: none;
+    }
+
+    .cursor-change.on {
+        display: none;
     }
 
     .themes {
