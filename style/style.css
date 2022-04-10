@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@300;400;700&display=swap');
 
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,6 +19,7 @@
 body[data-cursor="arrow"] *{
     cursor: default;
 } 
+
 body[data-cursor="arrow"] .setting,
 body[data-cursor="arrow"] .logo,
 body[data-cursor="arrow"] .link,
@@ -50,7 +49,6 @@ body[data-cursor="cirle"] .setting:hover.cursor{
     width: 50px;
     height: 50px;
 }
-
 
 :root {
     --color-blue: #67A6D0;
@@ -106,14 +104,11 @@ main {
     background-color: #253861;
 }
 
-
-
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 
 .row {
     display: flex;
@@ -131,8 +126,6 @@ main {
     width: 100%;
     height: 100vh;
     background: url(../img/gplaypattern.png);
-    /* background: url(../img/stripes-light.png) center center; */
-    /* background: url(../img/dots.png) center center; */
     filter: invert(0);
     position: fixed;
     z-index: -1;
@@ -166,8 +159,6 @@ body.darkmode .back {
 }
 
 body.darkmode .back2 {
-    /* background: url(../img/stripes-light.png) center center; */
-    /* background: url(../img/dots.png) center center; */
     transform: translateZ(0);
     transition: all 0.5s ease-out;
     filter: invert(1);
